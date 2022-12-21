@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element extends="sys_import_set_row" label="Users Lists" max_length="40" name="x_58872_needit_users_lists" sizeclass="2" type="collection">
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=C" label="C" max_length="40" name="u_c" type="string"/>
+        <element attributes="import_attribute_name=    Contact" label="    Contact" max_length="40" name="u_contact" type="float"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=E" label="E" max_length="40" name="u_e" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=         Employee" label="         Employee" max_length="40" name="u_employee" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=    Employee Email" label="    Employee Email" max_length="40" name="u_employee_email" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name= Location" label=" Location" max_length="40" name="u_location" type="string"/>
+        <element attributes="import_attribute_name=  Number" label="  Number" max_length="40" name="u_number" type="integer"/>
+    </element>
+</database>
