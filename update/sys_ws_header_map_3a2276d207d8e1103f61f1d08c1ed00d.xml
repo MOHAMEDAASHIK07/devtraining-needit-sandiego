@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ws_header_map">
+    <sys_ws_header_map action="INSERT_OR_UPDATE">
+        <sys_class_name>sys_ws_header_map</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-01-12 11:28:13</sys_created_on>
+        <sys_id>3a2276d207d8e1103f61f1d08c1ed00d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>3632f65607d8e1103f61f1d08c1ed0f7</sys_name>
+        <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
+        <sys_update_name>sys_ws_header_map_3a2276d207d8e1103f61f1d08c1ed00d</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-01-12 11:28:13</sys_updated_on>
+        <web_service_header display_value="HTTP Header">3632f65607d8e1103f61f1d08c1ed0f7</web_service_header>
+        <web_service_operation display_value="ni_getinfo">d5d06f2d079061103f61f1d08c1ed065</web_service_operation>
+    </sys_ws_header_map>
+</record_update>

@@ -3,10 +3,10 @@
         <active>true</active>
         <consumes>application/json,application/xml,text/xml</consumes>
         <consumes_customized>false</consumes_customized>
-        <default_operation_uri>/api/x_58872_needit/web_service/userinfo/{user_id}</default_operation_uri>
+        <default_operation_uri/>
         <enforce_acl/>
         <http_method>GET</http_method>
-        <name>user_info</name>
+        <name>user_info (v6)</name>
         <operation_script><![CDATA[(function process(/*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
 
     // implement resource here
@@ -95,7 +95,7 @@
   // Send the response object, which is returned to the requestor, to the body object.
   response.setBody(body);
 })(request, response);]]></operation_script>
-        <operation_uri>/api/x_58872_needit/v1/web_service/userinfo/{user_id}</operation_uri>
+        <operation_uri>/api/x_58872_needit/v6/web_service/userinfo/{user_id}</operation_uri>
         <produces>application/json,application/xml,text/xml</produces>
         <produces_customized>false</produces_customized>
         <relative_path>/userinfo/{user_id}</relative_path>
@@ -106,17 +106,17 @@
         <short_description/>
         <sys_class_name>sys_ws_operation</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2023-01-09 14:19:23</sys_created_on>
-        <sys_id>1f3144e5079421103f61f1d08c1ed0dc</sys_id>
-        <sys_mod_count>23</sys_mod_count>
-        <sys_name>user_info</sys_name>
+        <sys_created_on>2023-01-12 14:33:28</sys_created_on>
+        <sys_id>20b1275e075ce1103f61f1d08c1ed005</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>user_info (v6)</sys_name>
         <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
         <sys_policy/>
         <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
-        <sys_update_name>sys_ws_operation_1f3144e5079421103f61f1d08c1ed0dc</sys_update_name>
+        <sys_update_name>sys_ws_operation_20b1275e075ce1103f61f1d08c1ed005</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-01-12 10:50:40</sys_updated_on>
+        <sys_updated_on>2023-01-12 14:33:28</sys_updated_on>
         <web_service_definition display_value="Web service">ffb31b5d07d021103f61f1d08c1ed00a</web_service_definition>
-        <web_service_version display_value="v1">30842b6d079061103f61f1d08c1ed0ad</web_service_version>
+        <web_service_version display_value="v6">94b1275e075ce1103f61f1d08c1ed000</web_service_version>
     </sys_ws_operation>
 </record_update>

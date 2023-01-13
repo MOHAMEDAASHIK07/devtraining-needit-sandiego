@@ -3,10 +3,10 @@
         <active>true</active>
         <consumes>application/json,application/xml,text/xml</consumes>
         <consumes_customized>false</consumes_customized>
-        <default_operation_uri>/api/x_58872_needit/needit_api/nigetinfo/{user_name}</default_operation_uri>
+        <default_operation_uri/>
         <enforce_acl>cf9d01d3e73003009d6247e603f6a990</enforce_acl>
         <http_method>GET</http_method>
-        <name>ni_getinfo</name>
+        <name>ni_getinfo (v4)</name>
         <operation_script><![CDATA[(function process( /*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
     var requestUser = request.pathParams.user_name;
     // Get value of the ni_query query parameter passed in the URL
@@ -17,8 +17,8 @@
     // the user_id path parameter.  
     var requestUserName = new GlideRecord('sys_user');
     requestUserName.get('sys_id', requestUser);
-	
-		if (!requestUserName.user_name) {
+
+    if (!requestUserName.user_name) {
         var apiError = new sn_ws_err.ServiceError();
         apiError.setStatus(542);
         apiError.setMessage("User not found");
@@ -26,7 +26,7 @@
         response.setError(apiError);
         return;
     }
-	
+
     // Get the count of active NeedIt table records where the user from the
     // user_name path parameter is the Requested for.  The encoded query is from the
     // Query Parameter Associations.  Group by category.
@@ -36,6 +36,7 @@
     userNICount.addEncodedQuery(requestNIQuery);
     userNICount.groupBy('category');
     userNICount.query();
+
 
     var needitRecs = 0;
     var niUserRecs = [];
@@ -63,7 +64,7 @@
     // Send the response object, which is returned to the requestor, to the body object.
     response.setBody(body);
 })(request, response);]]></operation_script>
-        <operation_uri>/api/x_58872_needit/v1/needit_api/nigetinfo/{user_name}</operation_uri>
+        <operation_uri>/api/x_58872_needit/v4/needit_api/nigetinfo/{user_name}</operation_uri>
         <produces>application/json,application/xml,text/xml</produces>
         <produces_customized>false</produces_customized>
         <relative_path>/nigetinfo/{user_name}</relative_path>
@@ -74,17 +75,17 @@
         <short_description>Find the active NeedIt records for a user. Group by What needed.</short_description>
         <sys_class_name>sys_ws_operation</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2023-01-10 06:35:24</sys_created_on>
-        <sys_id>d5d06f2d079061103f61f1d08c1ed065</sys_id>
-        <sys_mod_count>27</sys_mod_count>
-        <sys_name>ni_getinfo</sys_name>
+        <sys_created_on>2023-01-13 11:44:47</sys_created_on>
+        <sys_id>dfa4ccb2079c25103f61f1d08c1ed044</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>ni_getinfo (v4)</sys_name>
         <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
         <sys_policy/>
         <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
-        <sys_update_name>sys_ws_operation_d5d06f2d079061103f61f1d08c1ed065</sys_update_name>
+        <sys_update_name>sys_ws_operation_dfa4ccb2079c25103f61f1d08c1ed044</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-01-12 14:48:22</sys_updated_on>
+        <sys_updated_on>2023-01-13 11:44:47</sys_updated_on>
         <web_service_definition display_value="NeedIt API">02f8bfdd075421103f61f1d08c1ed012</web_service_definition>
-        <web_service_version display_value="v1">48c585ce0754a1103f61f1d08c1ed0d5</web_service_version>
+        <web_service_version display_value="v4">5ba4ccb2079c25103f61f1d08c1ed042</web_service_version>
     </sys_ws_operation>
 </record_update>
