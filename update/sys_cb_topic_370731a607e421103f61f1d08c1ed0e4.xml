@@ -1,0 +1,604 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_cb_topic">
+    <sys_cb_topic action="INSERT_OR_UPDATE">
+        <applicability/>
+        <applicability_mode>query</applicability_mode>
+        <autopilot_topic>false</autopilot_topic>
+        <category>a5ce18a1536b101024faddeeff7b12bb</category>
+        <channels/>
+        <connect_queue/>
+        <description>Topic allows users to view their open incident records</description>
+        <expose_on_palette>false</expose_on_palette>
+        <flexible_conversation_switching>false</flexible_conversation_switching>
+        <graph>{
+  "graph_api_version": "1.0.39",
+  "goals": {
+    "primary": {
+      "id": "primary",
+      "trigger": {
+        "type": "primary"
+      },
+      "name": "primary",
+      "applicability": "",
+      "description": "",
+      "nodes": {
+        "6e6bd4a596a54779add9747b1b7218d6": {
+          "id": "6e6bd4a596a54779add9747b1b7218d6",
+          "stepType": "Start",
+          "name": "Start",
+          "greetingResponse": {
+            "mode": "simple",
+            "value": ""
+          }
+        },
+        "e485c2456300423c8633cae6061a4091": {
+          "id": "e485c2456300423c8633cae6061a4091",
+          "stepType": "TerminateGoal",
+          "name": "End",
+          "confirmationMessage": {
+            "mode": "simple",
+            "value": ""
+          }
+        },
+        "d4cd20da3cce426b9995b20275feb2cb": {
+          "stepType": "ChoicePrompt",
+          "name": "Incident Type",
+          "prompt": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Which type of  record would you like to view?"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "skippable": {
+            "value": "",
+            "mode": "query"
+          },
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "variableId": "fb4fa36a86ce489e83d3b560d4cc00ea",
+          "id": "d4cd20da3cce426b9995b20275feb2cb",
+          "hasCardHeader": false,
+          "cardMetadata": {
+            "mode": "card",
+            "metadataScript": "",
+            "cardTemplate": "",
+            "cardFields": {},
+            "cardDefinition": {}
+          },
+          "withNluUserInput": false,
+          "skipIfFulfilled": false
+        },
+        "2c099a2bc61f48489b3908867fc76e8b": {
+          "id": "2c099a2bc61f48489b3908867fc76e8b",
+          "stepType": "Prompt",
+          "name": "Intro and Concl",
+          "prompt": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "I can help you find and update Incident records for a type of request."
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": ""
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Ask again when you need to update other Incident records."
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "skippable": {
+            "value": "",
+            "mode": "query"
+          },
+          "defaultValue": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": ""
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "withNluUserInput": false,
+          "skipIfFulfilled": false,
+          "variableId": "f89fe5a8b5c2492fa82658e6afcb4bc6",
+          "inputType": {
+            "format": "Text",
+            "script": ""
+          }
+        },
+        "8e126e63fd1142919dfce58869e370fc": {
+          "id": "8e126e63fd1142919dfce58869e370fc",
+          "stepType": "TextOutput",
+          "name": "Confirm Incident Type",
+          "secure": false,
+          "value": {
+            "value": "(function execute() {\n    /* Return a quoted string.  For example:\n\n       if (vaInputs.first_name == 'Bill') {\n           return gs.getMessageLang(\"hi there {0}\", vaContext.getRequesterLang(), [vaInputs.first_name]);\n       } else {\n           return gs.getMessageLang(\"how are you {0}\", vaContext.getRequesterLang(), [vaInputs.last_name]);\n       }\n    */\n    return 'You Selected: ' + vaInputs.incident_type.getDisplayValue();\n})()\n",
+            "mode": "script"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "ac83b3e740214677a8ca79e9fcf89f9b": {
+          "stepType": "ReferenceChoicePrompt",
+          "name": "Incident List",
+          "prompt": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Select a Incident record to view"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "mode": "query",
+            "value": ""
+          },
+          "skippable": {
+            "value": "",
+            "mode": "query"
+          },
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "variableId": "5bb852d076624fcebd35af0d74a1886d",
+          "id": "ac83b3e740214677a8ca79e9fcf89f9b",
+          "mode": "glide_record",
+          "script": "",
+          "metadataScript": "",
+          "cardData": {},
+          "noRecordsResponseMsg": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "You have no open Incident records"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "condition": {
+            "mode": "glide_query",
+            "value": "active=true"
+          },
+          "hasCardHeader": false,
+          "cardMetadata": {
+            "mode": "card",
+            "metadataScript": "",
+            "cardTemplate": "",
+            "cardFields": {},
+            "cardDefinition": {}
+          },
+          "withNluUserInput": false,
+          "skipIfFulfilled": false
+        },
+        "a8adcbf690a14dffba44bccf10f4083a": {
+          "id": "a8adcbf690a14dffba44bccf10f4083a",
+          "stepType": "Prompt",
+          "name": "Search Again",
+          "prompt": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Would you like to view another Incident Record?"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "skippable": {
+            "value": "",
+            "mode": "query"
+          },
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "withNluUserInput": false,
+          "skipIfFulfilled": false,
+          "variableId": "c68ede8ce2de4db6b835fac26d4cfe47"
+        },
+        "1ac261ce3b2a48879faeb064943e82d3": {
+          "id": "1ac261ce3b2a48879faeb064943e82d3",
+          "stepType": "Decision",
+          "name": "Find more Incident Records"
+        },
+        "5de734480bed41f7aa96651f3ed82327": {
+          "id": "5de734480bed41f7aa96651f3ed82327",
+          "stepType": "Prompt",
+          "name": "New When Incident Date",
+          "prompt": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "When do you need the Incident completed?"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "skippable": {
+            "value": "",
+            "mode": "query"
+          },
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "withNluUserInput": false,
+          "skipIfFulfilled": false,
+          "variableId": "a566c230c2a64ba5bae46ebb22665aec"
+        },
+        "15d02837c4c84946968de691f8823c16": {
+          "id": "15d02837c4c84946968de691f8823c16",
+          "stepType": "CrudAction",
+          "name": "Change When Incident Date",
+          "template": "priority=1",
+          "mode": "update",
+          "record": "5bb852d076624fcebd35af0d74a1886d",
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "variableId": "284a1bd387d24186a4d6727252e382e0"
+        },
+        "3597db86030045f0ac0496e4e66e533b": {
+          "id": "3597db86030045f0ac0496e4e66e533b",
+          "name": "Transfer to Agent",
+          "script": "(function execute() {\n    /* Code your scripted action here. For example, you might update a\n       record based on conditional logic:\n\n        if (vaVars.my_flag == 'say hello') {\n            gs.info('hi there');\n        } else {\n            gs.info('bye now');\n        }\n    */\n    vaSystem.ConnectToAgent()\n})()\n",
+          "stepType": "ScriptAction",
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        }
+      },
+      "edges": [
+        {
+          "id": "6ec59534b3b545ee913c7fb51a0b5839",
+          "edgeType": "Edge",
+          "source": "6e6bd4a596a54779add9747b1b7218d6",
+          "target": "d4cd20da3cce426b9995b20275feb2cb",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "f95dae40ea094404a7ddc924fb7ffa99",
+          "edgeType": "Edge",
+          "source": "d4cd20da3cce426b9995b20275feb2cb",
+          "target": "2c099a2bc61f48489b3908867fc76e8b",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "87aa94f40ba041a8a7850e17fdb02eb9",
+          "edgeType": "Edge",
+          "source": "2c099a2bc61f48489b3908867fc76e8b",
+          "target": "8e126e63fd1142919dfce58869e370fc",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "f319774736064c6b8b1fe92b5af576c0",
+          "edgeType": "Edge",
+          "source": "8e126e63fd1142919dfce58869e370fc",
+          "target": "ac83b3e740214677a8ca79e9fcf89f9b",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "0a874b5033b247f995a4c150b34a22f2",
+          "edgeType": "Edge",
+          "source": "ac83b3e740214677a8ca79e9fcf89f9b",
+          "target": "a8adcbf690a14dffba44bccf10f4083a",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "f622ca1347924b7484a74e97350bb2b8",
+          "edgeType": "Edge",
+          "source": "a8adcbf690a14dffba44bccf10f4083a",
+          "target": "1ac261ce3b2a48879faeb064943e82d3",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "2101f765590c4837817a295a956d3069",
+          "edgeType": "Branch",
+          "source": "1ac261ce3b2a48879faeb064943e82d3",
+          "target": "d4cd20da3cce426b9995b20275feb2cb",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "mode": "query",
+            "value": ""
+          },
+          "label": "Yes"
+        },
+        {
+          "id": "6e08962c035f42889b54260d913f8980",
+          "edgeType": "Branch",
+          "source": "1ac261ce3b2a48879faeb064943e82d3",
+          "target": "5de734480bed41f7aa96651f3ed82327",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.search_again=false",
+            "mode": "query"
+          },
+          "label": "No"
+        },
+        {
+          "id": "dd9ca874686547a1a6a38e73a8ee6a21",
+          "edgeType": "Edge",
+          "source": "5de734480bed41f7aa96651f3ed82327",
+          "target": "15d02837c4c84946968de691f8823c16",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "baba84f785614f81b0162f27b90c436e",
+          "edgeType": "Edge",
+          "source": "15d02837c4c84946968de691f8823c16",
+          "target": "3597db86030045f0ac0496e4e66e533b",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "6e830d5a528f422d8e88026a4beb059b",
+          "edgeType": "Edge",
+          "source": "3597db86030045f0ac0496e4e66e533b",
+          "target": "e485c2456300423c8633cae6061a4091",
+          "sourcePort": "",
+          "targetPort": ""
+        }
+      ]
+    }
+  },
+  "variables": {
+    "1645c4e9ad054fb89a03ffa685125e43": {
+      "id": "1645c4e9ad054fb89a03ffa685125e43",
+      "name": "LiveAgent_application",
+      "value": {
+        "mode": "simple",
+        "value": null
+      },
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "current-user": {
+      "category": "vaInputs",
+      "id": "current-user",
+      "label": "User",
+      "name": "user",
+      "table": "sys_user",
+      "varType": "reference"
+    },
+    "fb4fa36a86ce489e83d3b560d4cc00ea": {
+      "id": "fb4fa36a86ce489e83d3b560d4cc00ea",
+      "name": "incident_type",
+      "label": "Incident Type",
+      "varType": "choice",
+      "choices": [
+        {
+          "label": "Caller",
+          "value": "caller"
+        },
+        {
+          "label": "Category",
+          "value": "category",
+          "checked": true
+        },
+        {
+          "label": "Assignment Group",
+          "value": "assignment group",
+          "checked": true
+        }
+      ],
+      "category": "vaInputs"
+    },
+    "f89fe5a8b5c2492fa82658e6afcb4bc6": {
+      "id": "f89fe5a8b5c2492fa82658e6afcb4bc6",
+      "name": "intro_and_concl",
+      "label": "Intro And Concl",
+      "varType": "string",
+      "secure": false,
+      "category": "vaInputs",
+      "encryptionHashFunction": "SHA-256",
+      "encryptionSalt": {
+        "value": "MTY3NDY1MzQ5NDQ3NyBWQSBEZXNpZ25lciBpcyBhd2Vzb21l",
+        "mode": "simple"
+      }
+    },
+    "5bb852d076624fcebd35af0d74a1886d": {
+      "id": "5bb852d076624fcebd35af0d74a1886d",
+      "name": "incident_list",
+      "label": "Incident List",
+      "varType": "reference",
+      "table": "incident",
+      "category": "vaInputs"
+    },
+    "c68ede8ce2de4db6b835fac26d4cfe47": {
+      "id": "c68ede8ce2de4db6b835fac26d4cfe47",
+      "name": "search_again",
+      "label": "Search Again",
+      "varType": "boolean",
+      "secure": false,
+      "category": "vaInputs"
+    },
+    "a566c230c2a64ba5bae46ebb22665aec": {
+      "id": "a566c230c2a64ba5bae46ebb22665aec",
+      "name": "new_when_incident_date",
+      "label": "New When Incident Date",
+      "varType": "date_time",
+      "secure": false,
+      "category": "vaInputs",
+      "mode": "date"
+    },
+    "284a1bd387d24186a4d6727252e382e0": {
+      "id": "284a1bd387d24186a4d6727252e382e0",
+      "name": "change_when_incident_date",
+      "label": "Change When Incident Date",
+      "varType": "reference",
+      "table": "incident",
+      "inactive": true,
+      "category": "vaInputs"
+    },
+    "080a97c15c0c4c8cac41408a41b29d3f": {
+      "id": "080a97c15c0c4c8cac41408a41b29d3f",
+      "value": {
+        "mode": "script",
+        "value": "(function execute() {\n    /* return 'a default value'; */\n    if(vaSystem.isLiveAgentAvailable()) {\n        return 'You have reached your Incident search limit. I will transfer you to a live agent for assistance.'\n    }\n    else {\n    return 'You have reached your Incident search limit. If you need to work with multiple Incident records, open Incident &gt; My Incident.';\n    }\n})()\n"
+      },
+      "name": "Limit_Reached",
+      "label": "Limit_Reached",
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "bec8e7025fbc40bb92c9b554122b3104": {
+      "id": "bec8e7025fbc40bb92c9b554122b3104",
+      "value": {
+        "mode": "script",
+        "value": "(function execute() {\n    /* return 'a default value'; */\n    if (vaSystem.isLiveAgentAvailable()){\n          return true;\n      } else {\n          return false;\n      }\n})()\n"
+      },
+      "name": "Limited_Reached_1",
+      "label": "Limited_Reached_1",
+      "varType": "script",
+      "category": "vaVars"
+    }
+  }
+}</graph>
+        <key_phrases>View Open Incident Records,Incident Request,need something</key_phrases>
+        <library>false</library>
+        <live_agent>false</live_agent>
+        <name>View Open Incident Records</name>
+        <nlu_intent/>
+        <nlu_intent_label/>
+        <nlu_model/>
+        <nlu_model_label/>
+        <nlu_provider/>
+        <palette_label/>
+        <roles/>
+        <secure_custom_input_control>false</secure_custom_input_control>
+        <source_topic_id/>
+        <sys_class_name>sys_cb_topic</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-01-25 11:41:45</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>370731a607e421103f61f1d08c1ed0e4</sys_id>
+        <sys_mod_count>51</sys_mod_count>
+        <sys_name>View Open Incident Records</sys_name>
+        <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
+        <sys_update_name>sys_cb_topic_370731a607e421103f61f1d08c1ed0e4</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-01-26 14:26:27</sys_updated_on>
+        <triggerable_by_notification>false</triggerable_by_notification>
+        <type>STANDARD</type>
+        <variables/>
+    </sys_cb_topic>
+    <sys_variable_value action="delete_multiple" query="document_key=370731a607e421103f61f1d08c1ed0e4"/>
+</record_update>
